@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "service.proto";
+
+package service;
+
+// gRPC definition for a Service
+
+service MyService { 
+    rpc CreateItem (CreateItemRequest) returns (Item) {}
+    rpc ReadItem (ReadItemRequest) returns (Item) {}
+    rpc UpdateItem (UpdateItemRequest) returns (Item) {}
+    rpc DeleteItem (DeleteItemRequest) returns (Empty) {}
+        
+}
+
+message Empty {
+}
+
+message CreateItemRequest { 
+    string itemId = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message ReadItemRequest { 
+    string itemId = 1;
+}
+
+message UpdateItemRequest {
+    string itemId = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message DeleteItemRequest {
+    string itemId = 1;
+}
+
+message Item {
+    string itemId = 1;
+    string name = 2;
+    string description = 3;
+    int64 created = 4;
+    int64 updated = 5;
+}

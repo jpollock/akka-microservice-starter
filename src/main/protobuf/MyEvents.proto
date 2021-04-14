@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "service.proto";
+
+package service;
+
+// Events published to Kafka
+
+message ItemCreated {
+    string itemId = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message ItemUpdated {
+    string itemId = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message ItemDeleted {
+    string itemId = 1;
+}
